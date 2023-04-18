@@ -35,8 +35,8 @@ app.get('/randomColors', (req, res)=>{
 
 app.get('/randomPlaces', (req, res)=>{
 
-    let randomNumber = casual.integer(from = 1, to = 5)
-    let randomPlaces = []
+    const randomNumber = casual.integer(from = 1, to = 5)
+    const randomPlaces = []
     for(let i = 1; i<=randomNumber; i++){
 
         const randomPlace = {
