@@ -15,16 +15,22 @@ registerForm.addEventListener('submit', (e)=>{
         phone: e.target.phoneNumber.value
     }
 
-    fetch('http://localhost:3000/',{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json" 
-        },
-        body: JSON.stringify({person})
-    }).then(
-        ()=>{location.replace("./index.html")}
+    if(person.password === person.pswRepeat){
+        fetch('http://localhost:3000/',{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify({person})
+        }).then(()=> registerForm.reset())
+        .then(
+            ()=>{window.open("index.html", "_blank");}
+        )
+    } else {
+        alert("Slaptažodis nesutampa")
+    }
 
-    )
+
     
 
 })
